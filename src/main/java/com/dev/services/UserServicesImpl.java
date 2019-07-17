@@ -11,6 +11,21 @@ public class UserServicesImpl implements UserServices {
 	public Boolean createProfile(User user) {
 		return db.createProfile(user);
 	}
+
+	@Override
+	public User getUser(Integer userId) {
+		return db.getUser(userId);
+	}
+
+	@Override
+	public User removeUser(Integer userId) {
+		return db.removeUser(userId);
+	}
+
+	@Override
+	public Boolean updatePassword(Integer userId, String passwd) {
+		return db.updatePassword(userId, passwd);
+	}
 	
 	
 }
