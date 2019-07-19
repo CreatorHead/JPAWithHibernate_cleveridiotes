@@ -2,20 +2,23 @@ package com.dev.beans;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="users_info_jpa")
 public class User {
-	
+
 	@Id @Column(name="user_id")
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int userId;
-	
+
 	private String firstName;
 	private String lastName;
 	private String password;
-	
+
 	public int getUserId() {
 		return userId;
 	}

@@ -17,6 +17,7 @@ public class JPAImpl implements UserDAO {
 			EntityManager em = emf.createEntityManager();
 			em.getTransaction().begin();
 			em.persist(user);
+			em.merge(user);
 			em.getTransaction().commit();
 			em.close();
 			state = true;

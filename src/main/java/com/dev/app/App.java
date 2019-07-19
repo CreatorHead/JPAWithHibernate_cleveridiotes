@@ -1,16 +1,23 @@
 package com.dev.app;
 
-import com.dev.services.UserServices;
-import com.dev.services.UserServicesImpl;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+
+import associations.one_to_many.Pencil;
+import associations.one_to_many.PencilBox_UniDirectional;
 
 public class App {
 	public static void main(String[] args) {
-		UserServices services = 
-					new UserServicesImpl();
+		EntityManagerFactory emf =
+				Persistence.createEntityManagerFactory("MySQLUnit");
+		EntityManager em = emf.createEntityManager();
 		
-		System.out.println(services.getUser(2));
-		services.updatePassword(2, "toor");
-		System.out.println(services.getUser(2));
+		em.close();
+		emf.close();
 		
 	}
 }
